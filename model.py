@@ -61,10 +61,10 @@ class Network(nn.Module):
         self.cluster_num = class_num
         self.instance_projector = nn.Sequential(
             nn.BatchNorm1d(num_classes),
-            nn.ReLU(),
+            nn.SiLU(),
             nn.Linear(num_classes, num_classes),
             nn.BatchNorm1d(num_classes),
-            nn.ReLU(),
+            nn.SiLU(),
             nn.Linear(num_classes, self.feature_dim),
         )
         self.cluster_projector = nn.Sequential(
